@@ -8,7 +8,26 @@
     <title>Awosome </title>
 </head>
 <body>
-    <h1>books</h1>
+     <!-- Book List -->
+    <section id="book-list" class="hide-section">
+        <h1 class="book-header">All Awesome books</h1>
+        <section id="book-store">
+          <!-- Content here is added from javaScript -->
+        </section>
+    </section>
+    <!-- Add New Book -->
+    <form id="add-new-book" class="hide-section">
+        <h2 class="book-header">Add a new book</h2>
+        <input
+          id="title-input"
+          type="text"
+          placeholder="Title"
+          autofocus
+          required
+        />
+        <input id="author" type="text" placeholder="Author" required />
+        <input id="add-btn" class="btn add-btn hide" type="submit" value="Add" />
+    </form>
     <script src="./js/index.js"></script>
 </body>
 </html>
