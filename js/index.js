@@ -1,70 +1,75 @@
-const bookTitle = document.querySelector('book-title');
-const bookAuthor = document.querySelector('book-author');
+const bookTitle = document.querySelector('.book-title');
+const bookAuthor = document.querySelector('.book-author');
 const bookForm = document.getElementsByTagName('form')[0];
 const awosomeBook = document.querySelector('.book-store');
 const bookBtn = document.getElementById('add-btn');
 
-// const bookList = [
-//   {title: 'Atomic Habits',
-//   author: 'James Clear',
-// },{
-//   title: 'Thinking fast and slow',
-//   author: 'Dean burnette',
-// },
-// ];
+class Collection {
+  constructor(books = []) {
+    this.books = books;
+  }
 
+  add(data) {
+    this.books.push(data);
+    this.display(data);
+    this.remove();
+    this.populateStorage();
+    bookTitle.value = '';
+    bookAuthor.value = '';
+  }
 
-// for (let i = 0; i < bookList.length; i++) {
-//   const p = document.createElement('p');
-//   const p2 = document.createElement('p');
-//   const btn = document.createElement('button');
-//   btn.type = 'button';
-//   btn.classList.add('remove-btn');
-//   btn.textContent = 'remove';
-//   const data = bookList[i];
-//   p.textContent = data.title;
-//   awosomeBook.appendChild(p);
-//   p2.textContent = data.author;
-//   awosomeBook.appendChild(p2);
-//   awosomeBook.appendChild(btn);
-// }
+  remove() {
+    const removeBtns = document.querySelectorAll('.remove-button');
+    removeBtns[removeBtns.length - 1].addEventListener('click', (evt) => {
+      this.removeFromColl(evt.target);
+      awosomeBook.removeChild(evt.target.parentNode);
+    });
+  }
+
+  display(data) {
+    if (this) {
+      const div = document.createElement('div');
+      div.className = 'book-wraper';
+      div.innerHTML = `<h3>"${data.title}" by</h3>
+                    <h3>${data.author}</h3>
+                    <button data-value="${data.title}-${data.author}" type="button" class ="remove-button">Remove</button>`;
+        awosomeBook.appendChild(div);
+    }
+  }
+
+  removeFromColl(data) {
+    const arr = data.getAttribute('data-value').split('-');
+    this.books = this.books.filter(
+      (item) => item.title + item.author !== arr[0] + arr[1],
+    );
+    this.populateStorage();
+  }
+
+  populateStorage() {
+    localStorage.setItem(
+      'bookCollection',
+      JSON.stringify({ bookColl: this.books }),
+    );
+  }
+}
 
 class Book {
-  constructor(id, title, author) {
-    this.id = id;
+  constructor(title, author) {
     this.title = title;
     this.author = author;
   }
-
-  static booksArr = [];
-
-  // create a Book
-  create(id = this.id, title = this.title, author = this.author) {
-    const bookElement = `
-    <div id="${id}" class="book">
-        <div class="book-details">
-          <p class="book-title">${title}</p>
-          <span class="by">&nbsp;by&nbsp;</span>
-          <p class="book-author">${author}</p>
-        </div>
-        <button class="btn remove-btn" type="button">Remove</button>
-    </div`;
-
-    awosomeBook.insertAdjacentHTML('beforeend', bookElement);
-  }
-
-  // Add a Book
-  Add() {
-    const newBook = new Book(this.id, this.title, this.author);
-    newBook.create();
-    Book.booksArr.push(newBook);
-  }
-
-  // Clear Fields
-  // static clearField() {
-  //   bookTitle.value = '';
-  //   bookAuthor.value = '';
-  // }
-
 }
+
+const coll = new Collection();
+if (localStorage.getItem('bookCollection')) {
+  const localBooks = JSON.parse(localStorage.getItem('bookCollection'));
+  localBooks.bookColl.forEach((element) => {
+    coll.add(new Book(element.title, element.author));
+  });
+}
+
+bookBtn.addEventListener('click', () => {
+  coll.add(new Book(bookTitle.value, bookAuthor.value));
+});
+
 
