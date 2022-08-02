@@ -53,11 +53,9 @@ class Collection {
 }
 
 /* eslint-disable */
-class Book {
-  constructor(title, author) {
+function Book(title, author) {
     this.title = title;
     this.author = author;
-  }
 }
 
 const coll = new Collection();
