@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Awosome </title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Awosome Books</title>
 </head>
 <body>
-    <h1>books</h1>
+     <!-- Book List -->
+    <section id="book-list" class="hide-section">
+        <h1 class="book-header">Awesome books</h1>
+        <section class="book-store">
+          <!-- Content here is added from javaScript -->
+        </section>
+    </section>
+    <!-- Add New Book -->
+    <form id="add-new-book" class="hide-section">
+        <input class="book-title" type="text" placeholder="Title" autofocus required />
+        <input class="book-author" type="text" placeholder="Author" required />
+        <input id="add-btn" class="btn add-btn hide" type="submit" value="Add" />
+    </form>
     <script src="./js/index.js"></script>
 </body>
 </html>
