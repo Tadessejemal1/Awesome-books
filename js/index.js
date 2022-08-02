@@ -1,4 +1,4 @@
-eslint:disable:max-classes-per-file
+"max-classes-per-file": [true, 5, "exclude-class-expressions"];
 const bookTitle = document.querySelector('.book-title');
 const bookAuthor = document.querySelector('.book-author');
 const awosomeBook = document.querySelector('.book-store');
