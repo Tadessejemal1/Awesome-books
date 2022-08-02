@@ -1,6 +1,6 @@
+/* tslint:disable:max-classes-per-file */
 const bookTitle = document.querySelector('.book-title');
 const bookAuthor = document.querySelector('.book-author');
-const bookForm = document.getElementsByTagName('form')[0];
 const awosomeBook = document.querySelector('.book-store');
 const bookBtn = document.getElementById('add-btn');
 
@@ -33,7 +33,7 @@ class Collection {
       div.innerHTML = `<h3>"${data.title}" by</h3>
                     <h3>${data.author}</h3>
                     <button data-value="${data.title}-${data.author}" type="button" class ="remove-button">Remove</button>`;
-        awosomeBook.appendChild(div);
+      awosomeBook.appendChild(div);
     }
   }
 
@@ -71,5 +71,3 @@ if (localStorage.getItem('bookCollection')) {
 bookBtn.addEventListener('click', () => {
   coll.add(new Book(bookTitle.value, bookAuthor.value));
 });
-
-
