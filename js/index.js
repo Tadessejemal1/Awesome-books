@@ -1,4 +1,4 @@
-/* tslint:disable:max-classes-per-file */
+/* eslint:disable:max-classes-per-file */
 const bookTitle = document.querySelector('.book-title');
 const bookAuthor = document.querySelector('.book-author');
 const awosomeBook = document.querySelector('.book-store');
