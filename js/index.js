@@ -52,11 +52,9 @@ class Collection {
   }
 }
 
-
-
 function Book(title, author) {
-    this.title = title;
-    this.author = author;
+  this.title = title;
+  this.author = author;
 }
 
 const coll = new Collection();
