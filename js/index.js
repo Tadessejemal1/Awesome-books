@@ -4,8 +4,6 @@ const awosomeBook = document.querySelector('.book-store');
 const bookBtn = document.getElementById('add-btn');
 const dateTime = document.querySelector('.dateTime');
 
-
-
 function myDate() {
   const today = new Date();
   dateTime.innerHTML = today.toLocaleString();
