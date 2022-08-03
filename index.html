@@ -11,6 +11,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header id="header">
+        <div class="logo"><span>Awesome Books</span></div>
+        <nav class="nav-links">
+          <ul>
+            <li class="nav-link">
+              <a href="#book-list" class="nav-a" id="list-link" value="list"> List</a>
+              <span id="spacer"></span>
+            </li>
+            <li class="nav-link">
+              <a href="#form" class="nav-a" id="add-link" value="add-new">Add new</a>
+            </li>
+            <li class="nav-link">
+              <a href="#contact-info" class="nav-a" id="contact-link" value="contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+    </header>
+<section class="app">
+     <!-- date -->
+     <div id="dateTime"></div>
+
      <!-- Book List -->
     <section id="book-list" class="hide-section">
         <h1 class="book-header">All awesome books</h1>
@@ -28,6 +49,29 @@
             <input id="add-btn" class="btn add-btn hide" type="submit" value="Add" />
         </form>
     </section>
+    <section id="contact-info">
+        <div class="contact-section">
+            <h2 class="contact-header">Contact Information</h2>
+            <p>
+            Do you have any questions or you just want to say "Hello"? <br />
+            You can reach out to us!
+            </p>
+            <ul id="contact-info-list">
+                <li>Our e-mail: .com</li>
+                <li>Our phone number: </li>
+                <li>Our address:</li>
+            </ul>
+        </div>
+    </section>
+  
+      <!-- Footer -->
+    <footer>
+        <div>
+          <p>Copyright ...</p>
+        </div>
+    </footer>
+</section>    
+  
     <script src="./js/index.js"></script>
 </body>
 </html>

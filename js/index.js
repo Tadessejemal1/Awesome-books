@@ -68,3 +68,69 @@ if (localStorage.getItem('bookCollection')) {
 bookBtn.addEventListener('click', () => {
   coll.add(new Book(bookTitle.value, bookAuthor.value));
 });
+
+// single page application
+
+window.onload = function()
+{
+    const path = window.location.pathname.split("/");
+
+    switch(path[1])
+    {
+        case "":
+        {
+            loadPage("List");
+            break;
+        }
+        case "Add new":
+        {
+            loadPage("Add new");
+            break;
+        }
+        case "contact":
+        {
+            loadPage("contact");
+            break;
+        }
+        default:
+        {
+            loadPage("404");
+            break;
+        }
+    }
+
+    document.querySelectorAll(".nav-link").forEach((link) =>
+    {
+        link.addEventListener("click", function()
+        {
+            const path = item.getAttribute("value");
+            loadPage(path);
+            if(path == "list")
+            {
+                window.history.pushState("", "", "/");
+                return;
+            }
+
+            window.history.pushState("", "", path);
+        });
+    });
+
+    function loadPage($path)
+    {
+        if($path == "") return;
+
+        const container = document.getElementById("app");
+
+        const request = new XMLHttpRequest();
+        request.open("GET", "pages/" + $path + ".html");
+        request.send();
+        request.onload = function()
+        {
+            if(request.status == 200)
+            {
+                container.innerHTML = request.responseText;
+                document.title = $path;
+            }
+        }
+    }
+}
