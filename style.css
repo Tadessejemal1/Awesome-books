@@ -104,7 +104,7 @@ body {
   margin: 0.5% 20%;
   gap: 15px;
   border: 3px solid black;
-  padding: 0 2% 0 .5%;
+  padding: 0 35px 0 .5%;
   position: fixed;
   top: 0.5%;
   right: 0;
@@ -141,6 +141,11 @@ body {
   font-weight: 500;
 }
 
+.dateTime {
+  margin:6% 20% 0 auto;
+  text-align: right;
+
+}
 .spacer {
   border: 1px solid black;
   border-radius: 5px;
