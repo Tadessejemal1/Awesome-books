@@ -69,68 +69,36 @@ bookBtn.addEventListener('click', () => {
   coll.add(new Book(bookTitle.value, bookAuthor.value));
 });
 
-// single page application
+const booksSection = document.querySelector('.book-list');
+const addSection = document.querySelector('.form');
+const contactSection = document.querySelector('.contact-info');
+const booksLink = document.getElementById('list-link');
+const addLink = document.getElementById('add-link');
+const contactLink = document.getElementById('contact-link');
 
-window.onload = function()
-{
-    const path = window.location.pathname.split("/");
+booksLink.addEventListener('click', () => {
+  booksSection.classList.remove('hidden');
+  addSection.classList.add('hidden');
+  contactSection.classList.add('hidden');
+  booksLink.style.color = 'rgb(15, 15, 161)';
+  addLink.style.color = 'black';
+  contactLink.style.color = 'black';
+});
 
-    switch(path[1])
-    {
-        case "":
-        {
-            loadPage("List");
-            break;
-        }
-        case "Add new":
-        {
-            loadPage("Add new");
-            break;
-        }
-        case "contact":
-        {
-            loadPage("contact");
-            break;
-        }
-        default:
-        {
-            loadPage("404");
-            break;
-        }
-    }
+addLink.addEventListener('click', () => {
+  booksSection.classList.add('hidden');
+  addSection.classList.remove('hidden');
+  contactSection.classList.add('hidden');
+  booksLink.style.color = 'black';
+  addLink.style.color = 'rgb(15, 15, 161)';
+  contactLink.style.color = 'black';
+});
 
-    document.querySelectorAll(".nav-link").forEach((link) =>
-    {
-        link.addEventListener("click", function()
-        {
-            const path = item.getAttribute("value");
-            loadPage(path);
-            if(path == "list")
-            {
-                window.history.pushState("", "", "/");
-                return;
-            }
-
-            window.history.pushState("", "", path);
-        });
-    });
-
-    function loadPage($path)
-    {
-        if($path == "") return;
-
-        const container = document.getElementById("app");
-
-        const request = new XMLHttpRequest();
-        request.open("GET", "pages/" + $path + ".html");
-        request.send();
-        request.onload = function()
-        {
-            if(request.status == 200)
-            {
-                container.innerHTML = request.responseText;
-                document.title = $path;
-            }
-        }
-    }
-}
+contactLink.addEventListener('click', () => {
+  booksSection.classList.add('hidden');
+  addSection.classList.add('hidden');
+  contactSection.classList.remove('hidden');
+  booksLink.style.color = 'black';
+  addLink.style.color = 'black';
+  contactLink.style.color = 'rgb(15, 15, 161)';
+});

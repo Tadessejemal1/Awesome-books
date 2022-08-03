@@ -12,66 +12,61 @@
 </head>
 <body>
     <header id="header">
-        <div class="logo"><span>Awesome Books</span></div>
         <nav class="nav-links">
-          <ul>
-            <li class="nav-link">
-              <a href="#book-list" class="nav-a" id="list-link" value="list"> List</a>
-              <span id="spacer"></span>
-            </li>
-            <li class="nav-link">
-              <a href="#form" class="nav-a" id="add-link" value="add-new">Add new</a>
-            </li>
-            <li class="nav-link">
-              <a href="#contact-info" class="nav-a" id="contact-link" value="contact">Contact</a>
-            </li>
-          </ul>
+            <h2>Awesome Books</h2>
+            <ul>
+                <li>
+                    <a href="#" class="nav-a" id="list-link"> List</a><span class="spacer"></span>
+                </li>
+                <li>
+                    <a href="#" class="nav-a" id="add-link">Add new</a><span class="spacer"></span>
+                </li>
+                <li>
+                    <a href="#" class="nav-a" id="contact-link">Contact</a>
+                </li>
+            </ul>
         </nav>
     </header>
-<section class="app">
-     <!-- date -->
-     <div id="dateTime"></div>
-
-     <!-- Book List -->
-    <section id="book-list" class="hide-section">
+    <!-- Time & Data -->
+    <section class="app">
+        <p id="dateTime"></p>
+    </section>
+    <!-- Content here is added from javaScript -->
+    <section class="book-list">
         <h1 class="book-header">All awesome books</h1>
         <section class="book-store">
-          <!-- Content here is added from javaScript -->
         </section>
-        <div class="underline"></div>
     </section>
     <!-- Add New Book -->
-    <section class="form">
+    <section class="form hidden">
         <h2>Add a new book</h2>
-        <form id="add-new-book" class="hide-section">
+        <form id="add-new-book">
             <input class="book-title" type="text" placeholder="Title" autofocus required />
             <input class="book-author" type="text" placeholder="Author" required />
             <input id="add-btn" class="btn add-btn hide" type="submit" value="Add" />
         </form>
     </section>
-    <section id="contact-info">
+    <!-- Contact Section -->
+    <section class="contact-info hidden">
         <div class="contact-section">
             <h2 class="contact-header">Contact Information</h2>
             <p>
-            Do you have any questions or you just want to say "Hello"? <br />
+            Do you have any questions or you just want to say "Hello"?<br/>
             You can reach out to us!
             </p>
             <ul id="contact-info-list">
-                <li>Our e-mail: .com</li>
-                <li>Our phone number: </li>
-                <li>Our address:</li>
+                <li>Our e-mail: email@email.com</li>
+                <li>Our phone number: 09090900909</li>
+                <li>Our address: 55 Awesome Street, Andromeda Galaxy</li>
             </ul>
         </div>
     </section>
-  
       <!-- Footer -->
     <footer>
         <div>
           <p>Copyright ...</p>
         </div>
     </footer>
-</section>    
-  
-    <script src="./js/index.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>
